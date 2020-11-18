@@ -22,7 +22,23 @@ namespace FocusResearch
 
         public async Task<string> ReadBookkeepingReportAsync(string inn, string ogrn)
         {
-            return await httpClient.GetStringAsync($"buh?inn={inn}&ogrn={ogrn}&key={key}").ConfigureAwait(false);
+            for (int i = 1; i <= 10; i++)
+            {
+                try
+                {
+                    return await httpClient.GetStringAsync($"buh?inn={inn}&ogrn={ogrn}&key={key}").ConfigureAwait(false);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("-----------------ERROR-----------------");
+                    Console.WriteLine(e);
+                    Console.WriteLine($"inn {inn}, ogrn{ogrn}");
+                    Console.WriteLine("-----------------error-----------------");
+                }
+
+                await Task.Delay(TimeSpan.FromSeconds(Math.Max(Math.Pow(i, 2), 15))).ConfigureAwait(false);
+            }
+            throw new Exception("Error happentd. See logs for more info.");
         }
     }
 }
