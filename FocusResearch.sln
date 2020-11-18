@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FocusResearch", "FocusResearch\FocusResearch.csproj", "{C1609F57-DB52-4288-B179-ACDFFD95F671}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Download", "Download\Download.csproj", "{9DFAB72E-ED2A-4EA0-AAC6-5638AFF2B5E1}"
 EndProject
 Global
